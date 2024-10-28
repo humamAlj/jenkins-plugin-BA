@@ -4,6 +4,7 @@ import hudson.model.Action;
 import hudson.tasks.Notifier;
 
 public abstract class TestingBaseAction extends Notifier implements Action {
+    private static final long serialVersionUID = 1L;
 
     @Override
     public String getDisplayName() {
@@ -17,8 +18,13 @@ public abstract class TestingBaseAction extends Notifier implements Action {
 
     @Override
     public String getIconFileName() {
-        return null;
+        return "notepad.png";
     }
+    /*
+       public String getJellyFile() {
+           return "io/jenkins/plugins/TestingBaseAction/index.jelly"; // Pfad zur index.jelly-Datei
+       }
+    */
     /*
        public void doDynamic(StaplerRequest req, StaplerResponse rsp) throws IOException, ServletException {
            DirectoryBrowserSupport dbs =

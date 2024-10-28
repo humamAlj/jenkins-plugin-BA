@@ -2,11 +2,9 @@ package io.jenkins.plugins;
 
 import hudson.model.AbstractItem;
 import hudson.model.AbstractProject;
-import hudson.model.Action;
-import hudson.model.Run;
 import java.io.File;
 
-public class TestingResultProjectAction extends TestingBaseAction implements Action {
+public class TestingResultProjectAction extends TestingBaseAction {
     private final AbstractProject<?, ?> project;
 
     public TestingResultProjectAction(AbstractProject<?, ?> project) {
@@ -32,13 +30,7 @@ public class TestingResultProjectAction extends TestingBaseAction implements Act
         return new File(project.getRootDir(), "testing-reports");
     }
 
-    /**
-     * Gets the directory where the HTML report is stored for the given build.
-     */
-    private File getBuildArchiveDir(Run run) {
-        return new File(run.getRootDir(), "testing-reports");
-    }
-
+    @Override
     protected String getTitle() {
         return this.project.getDisplayName();
     }

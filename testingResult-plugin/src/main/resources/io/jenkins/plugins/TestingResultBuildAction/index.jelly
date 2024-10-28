@@ -1,15 +1,9 @@
 <?jelly escape-by-default='true'?>
-<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout">
-
-    <h1>${build.getDisplayName()}</h1>
-    
-    <h2>Build Ergebnisse</h2>
-    <p><strong>Error String:</strong> ${it.errorString}</p>
-    <p><strong>Custom Message:</strong> ${it.customMessage}</p>
-    
-
-        <f:entry title="Build-Nummer" field="build.number">
-            ${build.number}
-        </f:entry>
-
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout">
+    <l:layout title="${it.displayName}">
+        <l:main-panel>
+            <h1>${it.displayName}</h1>
+            <p>${it.customMessage}</p>
+        </l:main-panel>
+    </l:layout>
 </j:jelly>

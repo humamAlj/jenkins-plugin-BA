@@ -4,7 +4,7 @@ Artifact-Id: testingResult
 Short-Name: testingResult
 Long-Name: testingResult Plugin
 Url: https://github.com/jenkinsci/testingResult-plugin
-Plugin-Version: 1.0-SNAPSHOT (private-10/24/2024 12:51-haljanad)
+Plugin-Version: 1.0-SNAPSHOT (private-10/28/2024 16:23-haljanad)
 Hudson-Version: 2.440.3
 Jenkins-Version: 2.440.3
 Plugin-Developers: 

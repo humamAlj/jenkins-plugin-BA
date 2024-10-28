@@ -13,10 +13,9 @@ import hudson.tasks.BuildStepMonitor;
 import hudson.tasks.Publisher;
 import hudson.tasks.Recorder;
 import java.io.IOException;
-import jenkins.tasks.SimpleBuildStep;
 import org.kohsuke.stapler.DataBoundConstructor;
 
-public class TestingResultPublisher extends Recorder implements SimpleBuildStep {
+public class TestingResultPublisher extends Recorder {
     /*  String pcError = "PC nicht gestartet";
     String buildError = "Code könnte nicht gebildet werden";
     String testsoftwareError = "testSoftware könnte nicht ausgeführt werden";
@@ -32,10 +31,16 @@ public class TestingResultPublisher extends Recorder implements SimpleBuildStep 
         this.errorString = errorString;
         this.customMessage = customMessage;
     }
-
+    /*
+       public TestingResultPublisher add(BuildStepDescriptor<Publisher> d) {
+           this.add(d);
+           return this;
+       }
+    */
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws IOException, InterruptedException {
+        // DescriptorImpl descriptor = new DescriptorImpl();
 
         build.addAction(new TestingResultBuildAction((AbstractBuild<?, ?>) build));
 
@@ -56,7 +61,8 @@ public class TestingResultPublisher extends Recorder implements SimpleBuildStep 
         return true;
     }
 
-    public Action getJobAction(AbstractProject<?, ?> project) {
+    @Override
+    public Action getProjectAction(AbstractProject<?, ?> project) {
         return new TestingResultProjectAction(project);
     }
 
@@ -67,7 +73,7 @@ public class TestingResultPublisher extends Recorder implements SimpleBuildStep 
 
     @Extension
     public static class DescriptorImpl extends BuildStepDescriptor<Publisher> {
-        @SuppressWarnings("deprecation")
+
         public DescriptorImpl() {
             super(TestingResultPublisher.class);
             load();
@@ -78,9 +84,19 @@ public class TestingResultPublisher extends Recorder implements SimpleBuildStep 
             return "publish test result";
         }
 
+        @Override
         public boolean isApplicable(Class<? extends AbstractProject> jobType) {
             return true;
         }
+        /*
+             public String getConfigPage() {
+                 return "io/jenkins/plugins/TestingResultPublisher/config.jelly"; // Gibt den Pfad zur config.jelly-Datei an
+             }
+
+             public String getJellyFile() {
+                 return "io/jenkins/plugins/TestingResultPublisher/index.jelly"; // Pfad zur index.jelly-Datei
+             }
+        */
     }
 
     @Override
