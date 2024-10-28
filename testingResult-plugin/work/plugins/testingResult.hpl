@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Group-Id: io.jenkins.plugins
+Artifact-Id: testingResult
+Short-Name: testingResult
+Long-Name: testingResult Plugin
+Url: https://github.com/jenkinsci/testingResult-plugin
+Plugin-Version: 1.0-SNAPSHOT (private-10/24/2024 12:51-haljanad)
+Hudson-Version: 2.440.3
+Jenkins-Version: 2.440.3
+Plugin-Developers: 
+Plugin-License-Name: MIT License
+Plugin-License-Url: https://opensource.org/license/mit/
+Plugin-ScmConnection: scm:git:https://github.com/jenkinsci/testingResult
+ -plugin
+Plugin-ScmTag: HEAD
+Plugin-ScmUrl: https://github.com/jenkinsci/testingResult-plugin
+Libraries: C:\projekte\BA\maven_project\Neuer_Ordner\testingResult-plugi
+ n\src\main\resources,C:\projekte\BA\maven_project\Neuer_Ordner\testingR
+ esult-plugin\target\classes
+Resource-Path: C:\projekte\BA\maven_project\Neuer_Ordner\testingResult-p
+ lugin\src\main\webapp
+
