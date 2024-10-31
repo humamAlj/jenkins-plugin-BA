@@ -1,0 +1,16 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define"
+         xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:u="/util">
+
+ <j:set var="config" value="${descriptor.config}"/>
+<f:advanced>
+<h2>Post-Build Action</h2>
+    <f:entry title="Error String" field="errorString">
+        <f:textbox/>
+    </f:entry>
+
+    <f:entry title="Custom Message" field="customMessage">
+        <f:textbox/>
+    </f:entry>
+</f:advanced>
+</j:jelly>
